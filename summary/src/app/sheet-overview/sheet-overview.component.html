@@ -1,0 +1,25 @@
+<div class="details" *ngIf="details">
+  <div class="in-progress" *ngIf="!details.inProgress">
+    <div>
+      <div>Ostatnie</div>
+      <div>Następne (+3h)</div>
+      <div>Minęło</div>
+      <div>Ile</div>
+      <div *ngIf="details.notes">Uwagi</div>
+    </div>
+    <div>
+      <div>{{ details.lastMealStartTime }} - {{ details.lastMealEndTime }}</div>
+      <div>{{ details.nextMealTime }}</div>
+      <div>{{ getElapsedTime() }}</div>
+      <div>{{ details.amount }}</div>
+      <div *ngIf="details.notes">{{ details.notes }}</div>
+    </div>
+  </div>
+
+  <div class="not-in-progress" *ngIf="details.inProgress">
+    <div>
+      Start: {{ details.lastMealStartTime }}
+    </div>
+    <img ngSrc="https://media.tenor.com/zCY6IBH82mcAAAAC/feeding-baby.gif" alt="" width="249" height="170" priority>
+  </div>
+</div>

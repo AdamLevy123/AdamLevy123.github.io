@@ -1,0 +1,26 @@
+@media (max-width: 500px) {
+  .in-progress {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
+@media (min-width: 501px) {
+  .in-progress {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+  }
+}
+
+.not-in-progress {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+}
