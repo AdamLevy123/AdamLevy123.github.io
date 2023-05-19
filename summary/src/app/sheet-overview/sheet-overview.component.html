@@ -1,4 +1,7 @@
-<div class="details" *ngIf="details">
+<div *ngIf="details" class="details">
+  <div *ngIf="standaloneApp || !details.inProgress">
+    Karmienie
+  </div>
   <div class="in-progress" *ngIf="!details.inProgress">
     <div>
       <div>Ostatnie</div>
@@ -22,4 +25,8 @@
     </div>
     <img ngSrc="https://media.tenor.com/zCY6IBH82mcAAAAC/feeding-baby.gif" alt="" width="249" height="170" priority>
   </div>
+
+  <button *ngIf="false" (click)="refresh()">
+    Odśwież
+  </button>
 </div>

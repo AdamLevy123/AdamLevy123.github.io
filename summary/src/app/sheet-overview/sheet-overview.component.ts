@@ -11,14 +11,14 @@ dayjs.extend(customParseFormat);
 })
 export class SheetOverviewComponent implements OnInit {
   details: Overview | undefined;
+  standaloneApp = false;
 
   constructor(private gService: GSheetService) {
   }
 
   ngOnInit(): void {
-    this.gService.getSheetData().subscribe(res=> {
-      this.details = res;
-    });
+    this.standaloneApp = this.isStandaloneApp();
+    this.loadData();
   }
 
   public getElapsedTime(): string {
@@ -33,6 +33,20 @@ export class SheetOverviewComponent implements OnInit {
     const minutes = `${diffMinutes % 60}`.toString().padStart(2, '0');
 
     return `${diffHours}:${minutes}`;
+  }
+
+  refresh(): void {
+    this.loadData();
+  }
+
+  private isStandaloneApp(): boolean {
+    return window.matchMedia('(display-mode: standalone)').matches;
+  }
+
+  private loadData() {
+    this.gService.getSheetData().subscribe(res=> {
+      this.details = res;
+    });
   }
 }
 

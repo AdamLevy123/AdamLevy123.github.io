@@ -22,5 +22,11 @@
 
 .details {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: unset;
+}
+
+.details-standalone > div {
+  padding-bottom: 1rem;
 }
